@@ -1,0 +1,121 @@
+{
+  "apiVersion": "v1",
+  "kind": "Pod",
+  "metadata": {
+    "name": "nf-262c59ec76edb0ed4ccdfc2e54324258",
+    "namespace": "default",
+    "labels": {
+      "app": "nextflow",
+      "SEQ_R": "",
+      "processName": "CHECK_SAMPLESHEET",
+      "SEQ_W": "",
+      "runName": "grave-torricelli",
+      "taskName": "CHECK_SAMPLESHEET_samplesheet_full_sispa.csv",
+      "sessionId": "uuid-1ff1ee78-8ecd-4fe3-9875-69463cb1432e",
+      "CPU_ST": "",
+      "RAM": ""
+    }
+  },
+  "spec": {
+    "restartPolicy": "Never",
+    "schedulerName": "new-scheduler",
+    "containers": [
+      {
+        "name": "nf-262c59ec76edb0ed4ccdfc2e54324258",
+        "image": "nfcore/viralrecon:1.1.0",
+        "command": [
+          "/bin/bash",
+          "-ue",
+          ".command.run"
+        ],
+        "workingDir": "/mnt/data/joba/work/26/2c59ec76edb0ed4ccdfc2e54324258",
+        "resources": {
+          "requests": {
+            "cpu": 1,
+            "memory": "1024Mi"
+          },
+          "limits": {
+            "cpu": 1,
+            "memory": "1024Mi"
+          }
+        },
+        "volumeMounts": [
+          {
+            "name": "vol-2",
+            "mountPath": "/mnt/data"
+          }
+        ]
+      }
+    ],
+    "affinity": {
+      "nodeAffinity": {
+        "preferredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "weight": 25,
+            "preference": {
+              "matchExpressions": [
+                {
+                  "key": "CPU_ST",
+                  "operator": "In",
+                  "values": [
+                    "0"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "weight": 25,
+            "preference": {
+              "matchExpressions": [
+                {
+                  "key": "RAM",
+                  "operator": "In",
+                  "values": [
+                    "0"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "weight": 25,
+            "preference": {
+              "matchExpressions": [
+                {
+                  "key": "SEQ_R",
+                  "operator": "In",
+                  "values": [
+                    "0"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "weight": 25,
+            "preference": {
+              "matchExpressions": [
+                {
+                  "key": "SEQ_W",
+                  "operator": "In",
+                  "values": [
+                    "0"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "volumes": [
+      {
+        "name": "vol-2",
+        "persistentVolumeClaim": {
+          "claimName": "fileserver-claim"
+        }
+      }
+    ]
+  }
+}

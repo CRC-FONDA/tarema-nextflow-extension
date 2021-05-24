@@ -1,0 +1,1 @@
+/home/joba/IdeaProjects/nextflow/tests/data/file[a-b].txt

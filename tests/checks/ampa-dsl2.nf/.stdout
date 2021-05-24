@@ -1,0 +1,27 @@
+Error executing process > 'ampaTask (2)'
+
+Caused by:
+  Process `ampaTask (2)` terminated with an error exit status (125)
+
+Command executed:
+
+  AMPA.pl -in=sample.2.fa -noplot -rf=result -df=data
+
+Command exit status:
+  125
+
+Command output:
+  (empty)
+
+Command error:
+  Unable to find image 'quay.io/nextflow/tests:latest' locally
+  docker: Error response from daemon: Get https://quay.io/v2/nextflow/tests/manifests/latest: net/http: TLS handshake timeout.
+  See 'docker run --help'.
+
+Work dir:
+  /home/joba/IdeaProjects/nextflow/tests/checks/scratch/56/99905961199d8c546f22ceaeaa3ad3
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+
+
+WARN: Killing pending tasks (4)

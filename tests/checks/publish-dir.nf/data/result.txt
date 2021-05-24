@@ -1,0 +1,1 @@
+/home/joba/IdeaProjects/nextflow/tests/checks/scratch/dd/9d0b3ca4c825a3d3fa3d67eb96e944/result.txt

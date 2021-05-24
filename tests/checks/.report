@@ -1,0 +1,270 @@
+~ Test 'ampa-dsl2.nf' run failed
+   + /home/joba/IdeaProjects/nextflow/nextflow -q run ../../ampa-dsl2.nf -with-docker --out result.txt
+   + tee .stdout
+   Error executing process > 'ampaTask (2)'
+   
+   Caused by:
+     Process `ampaTask (2)` terminated with an error exit status (125)
+   
+   Command executed:
+   
+     AMPA.pl -in=sample.2.fa -noplot -rf=result -df=data
+   
+   Command exit status:
+     125
+   
+   Command output:
+     (empty)
+   
+   Command error:
+     Unable to find image 'quay.io/nextflow/tests:latest' locally
+     docker: Error response from daemon: Get https://quay.io/v2/nextflow/tests/manifests/latest: net/http: TLS handshake timeout.
+     See 'docker run --help'.
+   
+   Work dir:
+     /home/joba/IdeaProjects/nextflow/tests/checks/scratch/56/99905961199d8c546f22ceaeaa3ad3
+   
+   Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+   
+   
+   WARN: Killing pending tasks (4)
+   ++ grep INFO .nextflow.log
+   ++ grep -c 'Submitted process'
+   + [[ 5 == 5 ]]
+   + cmp .expected /dev/fd/63
+   ++ sort .stdout
+   .expected /dev/fd/63 differ: byte 6, line 6
+   + false
+
+Nov-14 18:52:07.837 [main] DEBUG nextflow.cli.Launcher - $> nextflow -q run ../../ampa-dsl2.nf -with-docker --out result.txt
+Nov-14 18:52:07.948 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 20.11.0-SNAPSHOT
+Nov-14 18:52:07.966 [main] INFO  nextflow.cli.CmdRun - Launching `../../ampa-dsl2.nf` [crazy_brattain] - revision: 06099abd49
+Nov-14 18:52:08.003 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /home/joba/IdeaProjects/nextflow/tests/nextflow.config
+Nov-14 18:52:08.008 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/joba/IdeaProjects/nextflow/tests/nextflow.config
+Nov-14 18:52:08.043 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Nov-14 18:52:08.907 [main] DEBUG nextflow.config.ConfigBuilder - Enabling execution in Docker container as requested by cli option `-with-docker -`
+Nov-14 18:52:08.970 [main] DEBUG nextflow.Session - Session uuid: 66acc88f-3071-4864-aa48-4016d8a54105
+Nov-14 18:52:08.971 [main] DEBUG nextflow.Session - Run name: crazy_brattain
+Nov-14 18:52:08.973 [main] DEBUG nextflow.Session - Executor pool size: 16
+Nov-14 18:52:09.028 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 20.11.0-SNAPSHOT build 5435
+  Created: 09-11-2020 14:25 UTC (15:25 CEST)
+  System: Linux 5.9.2-050902-generic
+  Runtime: Groovy 3.0.5 on OpenJDK 64-Bit Server VM 11.0.9.1+1-Ubuntu-0ubuntu1.20.04
+  Encoding: UTF-8 (UTF-8)
+  Process: 27576@joba-tub [127.0.1.1]
+  CPUs: 16 - Mem: 14.9 GB (4.3 GB) - Swap: 980 MB (973.5 MB)
+Nov-14 18:52:09.067 [main] DEBUG nextflow.Session - Work-dir: /home/joba/IdeaProjects/nextflow/tests/checks/scratch [ext2/ext3]
+Nov-14 18:52:09.140 [main] DEBUG nextflow.Session - Observer factory: TowerFactory
+Nov-14 18:52:09.144 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Nov-14 18:52:09.317 [main] DEBUG nextflow.Session - Session start invoked
+Nov-14 18:52:09.713 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Nov-14 18:52:09.768 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: ampaTask
+Nov-14 18:52:10.002 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-14 18:52:10.003 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-14 18:52:10.008 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Nov-14 18:52:10.015 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=16; memory=14.9 GB; capacity=16; pollInterval=100ms; dumpInterval=5m
+Nov-14 18:52:10.146 [main] DEBUG nextflow.Session - Ignite dataflow network (2)
+Nov-14 18:52:10.154 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > ampaTask
+Nov-14 18:52:10.155 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Nov-14 18:52:10.156 [main] DEBUG nextflow.Session - Session await
+Nov-14 18:52:10.185 [Actor Thread 1] DEBUG n.splitter.AbstractTextSplitter - Splitter `Fasta` collector path: nextflow.splitter.TextFileCollector$CachePath(/home/joba/IdeaProjects/nextflow/tests/checks/scratch/b2/7649015c9fe00f0370cdb02f1cec3a/sample.fa, null)
+Nov-14 18:52:10.560 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-14 18:52:10.569 [Task submitter] INFO  nextflow.Session - [f1/ba4750] Submitted process > ampaTask (5)
+Nov-14 18:52:10.580 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-14 18:52:10.581 [Task submitter] INFO  nextflow.Session - [40/7883c7] Submitted process > ampaTask (4)
+Nov-14 18:52:10.594 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-14 18:52:10.595 [Task submitter] INFO  nextflow.Session - [33/2aa295] Submitted process > ampaTask (1)
+Nov-14 18:52:10.607 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-14 18:52:10.608 [Task submitter] INFO  nextflow.Session - [df/831a05] Submitted process > ampaTask (3)
+Nov-14 18:52:10.621 [Task submitter] DEBUG nextflow.executor.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Nov-14 18:52:10.622 [Task submitter] INFO  nextflow.Session - [56/999059] Submitted process > ampaTask (2)
+Nov-14 18:52:22.183 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: ampaTask (2); status: COMPLETED; exit: 125; error: -; workDir: /home/joba/IdeaProjects/nextflow/tests/checks/scratch/56/99905961199d8c546f22ceaeaa3ad3]
+Nov-14 18:52:22.229 [Task monitor] ERROR nextflow.processor.TaskProcessor - Error executing process > 'ampaTask (2)'
+
+Caused by:
+  Process `ampaTask (2)` terminated with an error exit status (125)
+
+Command executed:
+
+  AMPA.pl -in=sample.2.fa -noplot -rf=result -df=data
+
+Command exit status:
+  125
+
+Command output:
+  (empty)
+
+Command error:
+  Unable to find image 'quay.io/nextflow/tests:latest' locally
+  docker: Error response from daemon: Get https://quay.io/v2/nextflow/tests/manifests/latest: net/http: TLS handshake timeout.
+  See 'docker run --help'.
+
+Work dir:
+  /home/joba/IdeaProjects/nextflow/tests/checks/scratch/56/99905961199d8c546f22ceaeaa3ad3
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+Nov-14 18:52:22.239 [Task monitor] DEBUG nextflow.Session - Session aborted -- Cause: Process `ampaTask (2)` terminated with an error exit status (125)
+Nov-14 18:52:22.265 [Task monitor] DEBUG nextflow.Session - The following nodes are still active:
+  [operator] view
+
+Nov-14 18:52:22.274 [main] DEBUG nextflow.Session - Session await > all process finished
+Nov-14 18:52:22.274 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Nov-14 18:52:22.286 [main] WARN  n.processor.TaskPollingMonitor - Killing pending tasks (4)
+Nov-14 18:52:22.332 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=4; succeedDuration=0ms; failedDuration=11.5s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=5; peakCpus=5; peakMemory=0; ]
+Nov-14 18:52:22.343 [main] DEBUG nextflow.CacheDB - Closing CacheDB done
+Nov-14 18:52:22.347 [main] DEBUG nextflow.util.SpuriousDeps - AWS S3 uploader shutdown
+Nov-14 18:52:22.360 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
+
+~ Test 'ignite.nf' run failed
+   + /home/joba/IdeaProjects/nextflow/nextflow -q run ../../ignite.nf -process.executor ignite
+   + tee stdout
+   Hola world!
+   Native: 1
+   Native: 2
+   Native: 3
+   Bonjour world!
+   Hello world!
+   Γεια σου world!
+   Ciao world!
+   Square: 9
+   Square: 1
+   Square: 4
+   ++ grep -c 'executor > ignite'
+   + [[ 1 == 1 ]]
+   ++ grep -c 'Submitted process'
+   + [[ 8 == 8 ]]
+   ++ grep -c 'Native: 1'
+   + [[ 1 == 1 ]]
+   ++ grep -c 'Native: 2'
+   + [[ 1 == 1 ]]
+   ++ grep -c 'Native: 3'
+   + [[ 1 == 1 ]]
+   ++ grep -c 'Square: 1'
+   + [[ 1 == 1 ]]
+   ++ grep -c 'Square: 4'
+   + [[ 1 == 1 ]]
+   ++ grep -c 'Square: 9'
+   + [[ 1 == 1 ]]
+   + /home/joba/IdeaProjects/nextflow/nextflow -q run ../../ignite.nf -process.executor ignite -w s3://nextflow-ci/work
+   + tee stdout
+   Access Denied (Service: Amazon S3; Status Code: 403; Error Code: AccessDenied; Request ID: D1BC361D47645512; S3 Extended Request ID: mnnvljwOld04ERXrOgPL52ouJvvxn0OqsQXD74Vc6ul1ELu4UDM+24j4ypkcuwArZO0CAB/Hj4s=)
+   
+   
+   ++ grep -c 'executor > ignite'
+   + [[ 0 == 1 ]]
+   + false
+
+Nov-14 19:01:23.288 [main] DEBUG nextflow.cli.Launcher - $> nextflow -q run ../../ignite.nf -process.executor ignite -w 's3://nextflow-ci/work'
+Nov-14 19:01:23.425 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 20.11.0-SNAPSHOT
+Nov-14 19:01:23.439 [main] INFO  nextflow.cli.CmdRun - Launching `../../ignite.nf` [elegant_sinoussi] - revision: 0ae10fec44
+Nov-14 19:01:23.469 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /home/joba/IdeaProjects/nextflow/tests/nextflow.config
+Nov-14 19:01:23.472 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/joba/IdeaProjects/nextflow/tests/nextflow.config
+Nov-14 19:01:23.506 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Nov-14 19:01:24.408 [main] DEBUG nextflow.Session - Session uuid: a626cee9-7542-47c8-9b88-a77bd7a7634b
+Nov-14 19:01:24.408 [main] DEBUG nextflow.Session - Run name: elegant_sinoussi
+Nov-14 19:01:24.409 [main] DEBUG nextflow.Session - Executor pool size: 16
+Nov-14 19:01:24.435 [main] DEBUG nextflow.file.FileHelper - Creating a file system instance for provider: S3FileSystemProvider
+Nov-14 19:01:24.453 [main] DEBUG nextflow.file.FileHelper - AWS S3 config details: {}
+Nov-14 19:01:25.147 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 20.11.0-SNAPSHOT build 5435
+  Created: 09-11-2020 14:25 UTC (15:25 CEST)
+  System: Linux 5.9.2-050902-generic
+  Runtime: Groovy 3.0.5 on OpenJDK 64-Bit Server VM 11.0.9.1+1-Ubuntu-0ubuntu1.20.04
+  Encoding: UTF-8 (UTF-8)
+  Process: 46673@joba-tub [127.0.1.1]
+  CPUs: 16 - Mem: 14.9 GB (2.6 GB) - Swap: 980 MB (973.5 MB)
+Nov-14 19:01:31.688 [main] ERROR nextflow.cli.Launcher - @unknown
+com.amazonaws.services.s3.model.AmazonS3Exception: Access Denied (Service: Amazon S3; Status Code: 403; Error Code: AccessDenied; Request ID: D1BC361D47645512; S3 Extended Request ID: mnnvljwOld04ERXrOgPL52ouJvvxn0OqsQXD74Vc6ul1ELu4UDM+24j4ypkcuwArZO0CAB/Hj4s=)
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.handleErrorResponse(AmazonHttpClient.java:1712)
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.executeOneRequest(AmazonHttpClient.java:1367)
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.executeHelper(AmazonHttpClient.java:1113)
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.doExecute(AmazonHttpClient.java:770)
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.executeWithTimer(AmazonHttpClient.java:744)
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.execute(AmazonHttpClient.java:726)
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.access$500(AmazonHttpClient.java:686)
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutionBuilderImpl.execute(AmazonHttpClient.java:668)
+	at com.amazonaws.http.AmazonHttpClient.execute(AmazonHttpClient.java:532)
+	at com.amazonaws.http.AmazonHttpClient.execute(AmazonHttpClient.java:512)
+	at com.amazonaws.services.s3.AmazonS3Client.invoke(AmazonS3Client.java:4914)
+	at com.amazonaws.services.s3.AmazonS3Client.invoke(AmazonS3Client.java:4860)
+	at com.amazonaws.services.s3.AmazonS3Client.access$300(AmazonS3Client.java:389)
+	at com.amazonaws.services.s3.AmazonS3Client$PutObjectStrategy.invokeServiceCall(AmazonS3Client.java:5793)
+	at com.amazonaws.services.s3.AmazonS3Client.uploadObject(AmazonS3Client.java:1786)
+	at com.amazonaws.services.s3.AmazonS3Client.putObject(AmazonS3Client.java:1746)
+	at com.amazonaws.services.s3.AmazonS3Client.putObject(AmazonS3Client.java:1687)
+	at com.upplication.s3fs.AmazonS3Client.putObject(AmazonS3Client.java:120)
+	at com.upplication.s3fs.S3FileSystemProvider.createDirectory(S3FileSystemProvider.java:470)
+	at java.base/java.nio.file.Files.createDirectory(Files.java:689)
+	at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:796)
+	at java.base/java.nio.file.Files.createDirectories(Files.java:742)
+	at java_nio_file_Files$createDirectories.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:148)
+	at nextflow.extension.FilesEx.mkdirs(FilesEx.groovy:491)
+	at nextflow.Session.init(Session.groovy:346)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:119)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:282)
+	at nextflow.cli.Launcher.run(Launcher.groovy:470)
+	at nextflow.cli.Launcher.main(Launcher.groovy:652)
+
+~ Test 's3-files.nf' run failed
+   + set -e
+   + /home/joba/IdeaProjects/nextflow/nextflow -q run ../../s3-files.nf
+   + tee stdout
+
+Nov-14 19:05:31.555 [main] DEBUG nextflow.cli.Launcher - $> nextflow -q run ../../s3-files.nf
+Nov-14 19:05:31.652 [main] INFO  nextflow.cli.CmdRun - N E X T F L O W  ~  version 20.11.0-SNAPSHOT
+Nov-14 19:05:31.667 [main] INFO  nextflow.cli.CmdRun - Launching `../../s3-files.nf` [thirsty_keller] - revision: ab84d9de72
+Nov-14 19:05:31.699 [main] DEBUG nextflow.config.ConfigBuilder - Found config base: /home/joba/IdeaProjects/nextflow/tests/nextflow.config
+Nov-14 19:05:31.703 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/joba/IdeaProjects/nextflow/tests/nextflow.config
+Nov-14 19:05:31.732 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Nov-14 19:05:32.684 [main] DEBUG nextflow.Session - Session uuid: 4b53bd39-928f-4afa-870a-7c62ce75d0b1
+Nov-14 19:05:32.684 [main] DEBUG nextflow.Session - Run name: thirsty_keller
+Nov-14 19:05:32.686 [main] DEBUG nextflow.Session - Executor pool size: 16
+Nov-14 19:05:32.744 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 20.11.0-SNAPSHOT build 5435
+  Created: 09-11-2020 14:25 UTC (15:25 CEST)
+  System: Linux 5.9.2-050902-generic
+  Runtime: Groovy 3.0.5 on OpenJDK 64-Bit Server VM 11.0.9.1+1-Ubuntu-0ubuntu1.20.04
+  Encoding: UTF-8 (UTF-8)
+  Process: 53580@joba-tub [127.0.1.1]
+  CPUs: 16 - Mem: 14.9 GB (2.9 GB) - Swap: 980 MB (973.5 MB)
+Nov-14 19:05:32.787 [main] DEBUG nextflow.Session - Work-dir: /home/joba/IdeaProjects/nextflow/tests/checks/scratch [ext2/ext3]
+Nov-14 19:05:32.847 [main] DEBUG nextflow.Session - Observer factory: TowerFactory
+Nov-14 19:05:32.850 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Nov-14 19:05:33.013 [main] DEBUG nextflow.Session - Session start invoked
+Nov-14 19:05:33.415 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Nov-14 19:05:33.433 [main] DEBUG nextflow.Session - Workflow process names [dsl1]: bar, foo
+Nov-14 19:05:33.454 [main] DEBUG nextflow.file.FileHelper - Creating a file system instance for provider: S3FileSystemProvider
+Nov-14 19:05:33.488 [main] DEBUG nextflow.file.FileHelper - AWS S3 config details: {}
+Nov-14 19:05:34.213 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: /nextflow-ci/nf-test-data/; pattern: *_{1,2}.fq; options: [:]
+Nov-14 19:05:34.216 [PathVisitor-1] DEBUG nextflow.file.FileHelper - Path matcher not defined by 'S3FileSystem' file system -- using default default strategy
+Nov-14 19:05:34.401 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-14 19:05:34.402 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-14 19:05:34.413 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Nov-14 19:05:34.424 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=16; memory=14.9 GB; capacity=16; pollInterval=100ms; dumpInterval=5m
+Nov-14 19:05:34.615 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Nov-14 19:05:34.616 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Nov-14 19:05:34.631 [main] DEBUG nextflow.script.ScriptRunner - > Await termination 
+Nov-14 19:05:34.632 [main] DEBUG nextflow.Session - Session await
+Nov-14 19:05:35.660 [SIGINT handler] DEBUG nextflow.Session - Session aborted -- Cause: SIGINT
+Nov-14 19:05:35.695 [SIGINT handler] DEBUG nextflow.Session - The following nodes are still active:
+[process] foo
+  status=ACTIVE
+  port 0: (value) bound ; channel: obj
+  port 1: (cntrl) -     ; channel: $
+
+[process] bar
+  status=ACTIVE
+  port 0: (queue) OPEN  ; channel: -
+  port 1: (cntrl) -     ; channel: $
+
+Nov-14 19:05:35.706 [main] DEBUG nextflow.Session - Session await > all process finished
+Nov-14 19:05:35.706 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Nov-14 19:05:35.717 [main] DEBUG nextflow.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
+Nov-14 19:05:35.727 [main] DEBUG nextflow.CacheDB - Closing CacheDB done
+Nov-14 19:05:35.730 [main] DEBUG nextflow.util.SpuriousDeps - AWS S3 uploader shutdown
+Nov-14 19:05:35.747 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
+

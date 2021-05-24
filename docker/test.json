@@ -1,0 +1,120 @@
+{
+  "apiVersion": "v1",
+  "kind": "Pod",
+  "metadata": {
+    "name": "nf-e90953d2e0c74b46b7cbd856f0467e79",
+    "namespace": "default",
+    "labels": {
+      "app": "nextflow",
+      "SEQ_R": "",
+      "processName": "CUTADAPT",
+      "SEQ_W": "",
+      "runName": "berserk-booth",
+      "taskName": "CUTADAPT_SAMPLE3_SE",
+      "sessionId": "uuid-35faa878-e066-4967-aa9a-e16ded69174d",
+      "CPU_ST": "",
+      "RAM": ""
+    }
+  },
+  "spec": {
+    "restartPolicy": "Never",
+    "containers": [
+      {
+        "name": "nf-e90953d2e0c74b46b7cbd856f0467e79",
+        "image": "nfcore/viralrecon:1.1.0",
+        "command": [
+          "/bin/bash",
+          "-ue",
+          ".command.run"
+        ],
+        "workingDir": "/mnt/data/joba/work/e9/0953d2e0c74b46b7cbd856f0467e79",
+        "resources": {
+          "requests": {
+            "cpu": 2,
+            "memory": "5120Mi"
+          },
+          "limits": {
+            "cpu": 2,
+            "memory": "5120Mi"
+          }
+        },
+        "volumeMounts": [
+          {
+            "name": "vol-20",
+            "mountPath": "/mnt/data"
+          }
+        ]
+      }
+    ],
+    "affinity": {
+      "nodeAffinity": {
+        "preferredDuringSchedulingIgnoredDuringExecution": [
+          {
+            "weight": 100,
+            "preference": {
+              "matchExpressions": [
+                {
+                  "key": "CPU_ST",
+                  "operator": "In",
+                  "values": [
+                    "2"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "weight": 100,
+            "preference": {
+              "matchExpressions": [
+                {
+                  "key": "RAM",
+                  "operator": "In",
+                  "values": [
+                    "2"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "weight": 100,
+            "preference": {
+              "matchExpressions": [
+                {
+                  "key": "SEQ_R",
+                  "operator": "In",
+                  "values": [
+                    "2"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "weight": 100,
+            "preference": {
+              "matchExpressions": [
+                {
+                  "key": "SEQ_W",
+                  "operator": "In",
+                  "values": [
+                    "2"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "volumes": [
+      {
+        "name": "vol-20",
+        "persistentVolumeClaim": {
+          "claimName": "fileserver-claim"
+        }
+      }
+    ]
+  }
+}
